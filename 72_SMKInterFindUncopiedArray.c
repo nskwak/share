@@ -14,9 +14,24 @@ int main()
     int arrN[] = {1, 3, 4, 6, 7};
     int copiedArrayN[] = {1, 3, 4, 7};
     int lenGth = sizeof(arrN)/sizeof(int);
-    int found = 0;
     int loopcnt = 0;
 
+    #if 1
+    for(int i=0; i<lenGth; i++)    
+    {
+        loopcnt++;
+        if(arrN[i] == copiedArrayN[i])
+        {
+            continue;
+        }
+        else
+        {
+            printf("uncopied arrayN is %d\n", arrN[i]);
+            break;
+        }
+    }
+    #else
+    int found = 0;
     for(int i=0; i<lenGth; i++)    
     {
         for(int j=0; j<(lenGth-1); j++)
@@ -36,7 +51,9 @@ int main()
         }
         
     }
+    #endif
     printf("Total loop count = %d\n", loopcnt);
+
     return 0;
 }
 #endif
